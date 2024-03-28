@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as HashRouter, Routes, Route } from 'react-router-dom'; // BrowserRouter를 Router로 변경
+
 import Tv from './Routes/Tv.tsx';
 import Home from './Routes/Home.tsx';
 import Search from './Routes/Search.tsx';
@@ -7,20 +8,17 @@ import Header from './Components/Header.tsx';
 
 function App() {
     return (
-        <Router>
+        <HashRouter>
             <Header />
-            <Switch>
-                <Route path="/tv">
-                    <Tv />
-                </Route>
-                <Route path="/search">
-                    <Search />
-                </Route>
-                <Route path={['/', '/movies/:movieId']}>
-                    <Home />
-                </Route>
-            </Switch>
-        </Router>
+
+            <Routes>
+                <Route path={'/'} element={<Home />} />
+                <Route path={'/tv'} element={<Tv />} />
+                <Route path={'/tv/:tvId'} element={<Tv />}></Route>
+                <Route path="/search" element={<Search />} />
+                <Route path={'/movies/:movieId'} element={<Home />} />;
+            </Routes>
+        </HashRouter>
     );
 }
 
