@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { makeImagePath } from '../../utils.ts';
+import { ISearchTv, getSeriesDetail } from '../../api.ts';
 import React from 'react';
-import { ISearchMovie, getMovieDetail } from '../../api.ts';
+import { makeImagePath } from '../../utils.ts';
 import { IoStarSharp } from 'react-icons/io5';
 
 const Overlay = styled(motion.div)`
@@ -76,12 +76,11 @@ const TitleBox = styled.div`
     align-items: center;
     position: relative;
     top: -10.5em;
-    left: 18.7em;
+    left: 18.5em;
 
     h2 {
         color: ${(props) => props.theme.white.lighter};
         font-size: 30px;
-        margin-top: 5px;
         &:nth-child(2) {
             font-size: 24px;
             color: #e84118;
@@ -102,19 +101,10 @@ const GenreTag = styled.span`
     border-radius: 10px;
 `;
 
-const Overview = styled.span`
-    display: flex;
-    align-items: center;
-    position: relative;
-    top: -4em;
-    right: -19em;
-    font-size: 16px;
-`;
 const ReleaseDate = styled.span`
     position: relative;
     background-color: black;
-    margin-left: 8px;
-    font-size: 13px;
+    font-size: 14px;
     top: 11em;
     left: 1.7em;
     opacity: 0.7;
@@ -123,23 +113,33 @@ const ReleaseDate = styled.span`
     border-radius: 5px;
     color: #37ff00;
 `;
+
+const Overview = styled.span`
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: -4em;
+    right: -19em;
+    font-size: 16px;
+`;
 const Icon = styled.div`
     margin-left: 5px;
-    margin-top: 13px;
+    margin-top: 12px;
 `;
-interface IBigMovieProp {
+
+interface IBigSearchProp {
     id: string;
+    menu: string;
+    keyword: string | null;
+    option: string;
 }
 
-function BigScreen({ id }: IBigMovieProp) {
-    // const detailmatch = useRouteMatch<{ id: string }>('/movies/:id');
+function BigScreenSearchTv({ id, menu, keyword, option }: IBigSearchProp) {
     const history = useNavigate();
-    const { data: searchMovie, isLoading } = useQuery<ISearchMovie>(['movie', `${id}_detail`], () =>
-        getMovieDetail(id)
-    );
-    console.log(searchMovie?.vote_average);
+    const { data: searchSeries } = useQuery<ISearchTv>(`searchTv${id}`, () => getSeriesDetail(id));
+
     const onClickBackHome = () => {
-        history('/');
+        history(`/search?keyword=${keyword}`);
     };
     return (
         <>
@@ -149,39 +149,37 @@ function BigScreen({ id }: IBigMovieProp) {
                     <BigImg
                         style={{
                             backgroundImage: `linear-gradient(to top, black, transparent), url(${makeImagePath(
-                                searchMovie?.backdrop_path || searchMovie?.poster_path || '',
+                                searchSeries?.backdrop_path || searchSeries?.poster_path || '',
                                 'w500'
                             )})`,
                         }}
                     ></BigImg>
                     <PosterImg
                         style={{
-                            backgroundImage: `url(${makeImagePath(searchMovie?.poster_path || '', 'w500')})`,
+                            backgroundImage: `url(${makeImagePath(searchSeries?.poster_path || '', 'w500')})`,
                         }}
                     />
                     <ReleaseDate>
-                        {' '}
-                        {searchMovie?.release_date && searchMovie.release_date.split('-')[0]} 년{' '}
+                        {searchSeries?.first_air_date && searchSeries?.first_air_date.split('-')[0]} 년
                     </ReleaseDate>
-                    <ReleaseDate>{searchMovie?.runtime} 분</ReleaseDate>
+                    <ReleaseDate> 시즌 {searchSeries?.number_of_seasons}</ReleaseDate>
                     <DetailBox>
                         <OriginalTitle>
-                            <h3>{searchMovie?.original_title}</h3>
+                            <h3>{searchSeries?.original_name}</h3>
                         </OriginalTitle>
 
                         <TitleBox>
-                            <h2>{searchMovie?.title}</h2>
+                            <h2>{searchSeries?.name}</h2>
 
-                            <h2> {searchMovie?.vote_average.toFixed(1)}</h2>
+                            <h2> {searchSeries?.vote_average.toFixed(1)}</h2>
                             <Icon>
                                 <IoStarSharp size="23px" color="gold" />
                             </Icon>
                         </TitleBox>
-                        {searchMovie?.genres.map((data) => (
+                        {searchSeries?.genres.map((data) => (
                             <GenreTag>{data.name}</GenreTag>
                         ))}
-
-                        <Overview>{searchMovie?.overview}</Overview>
+                        <Overview>{searchSeries?.overview}</Overview>
                     </DetailBox>
                 </>
             </BigMovie>
@@ -189,4 +187,4 @@ function BigScreen({ id }: IBigMovieProp) {
     );
 }
 
-export default BigScreen;
+export default BigScreenSearchTv;

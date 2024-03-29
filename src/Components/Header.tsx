@@ -108,9 +108,9 @@ interface IForm {
 }
 
 function Header() {
-    const [searchOpen, setSearchOpen] = useState(false);
     const homeMatch = useMatch('/');
     const tvMatch = useMatch('/tv');
+    const [searchOpen, setSearchOpen] = useState(false);
     const inputAnimation = useAnimation();
     const navAnimation = useAnimation();
     const { scrollY } = useScroll();
@@ -127,6 +127,7 @@ function Header() {
         }
         setSearchOpen((prev) => !prev);
     };
+
     useEffect(() => {
         scrollY.onChange(() => {
             if (scrollY.get() > 80) {
@@ -139,7 +140,7 @@ function Header() {
     const history = useNavigate();
     const { register, handleSubmit, setFocus } = useForm<IForm>();
     const onValid = (data: IForm) => {
-        // console.log(data);
+        // console.log('검색어', data);
         history(`/search?keyword=${data.keyword}`);
     };
     return (
@@ -164,39 +165,42 @@ function Header() {
 
                 <Items>
                     <Item>
-                        <Link to="/">MOVIE{homeMatch && <Circle layoutId="circle" />}</Link>
+                        <Link to="/">MOVIE{homeMatch ? <Circle layoutId="circle" /> : null}</Link>
                     </Item>
                     <Item>
-                        <Link to="/tv">SERIES{tvMatch && <Circle layoutId="circle" />}</Link>
+                        <Link to="/tv">SERIES{tvMatch ? <Circle layoutId="circle" /> : null}</Link>
                     </Item>
                 </Items>
             </Col>
-            <Search onSubmit={handleSubmit(onValid)}>
-                <motion.svg
-                    transition={{ type: 'linear' }}
-                    onClick={() => {
-                        toggleSearch();
-                        setFocus('keyword');
-                    }}
-                    animate={{ x: searchOpen ? -210 : 0 }}
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        fillRule="evenodd"
-                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                        clipRule="evenodd"
-                    ></path>
-                </motion.svg>
-                <Input
-                    {...register('keyword', { required: true, minLength: 2 })}
-                    animate={inputAnimation}
-                    initial={{ scaleX: 0 }}
-                    transition={{ type: 'linear' }}
-                    placeholder=" Tv or Moive 를 검색하세요"
-                />
-            </Search>
+            <Col>
+                <Search onSubmit={handleSubmit(onValid)}>
+                    <motion.svg
+                        transition={{ duration: 0.5, ease: 'linear' }}
+                        onClick={() => {
+                            toggleSearch();
+                            setFocus('keyword');
+                        }}
+                        animate={{ x: searchOpen ? -210 : 0 }}
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fillRule="evenodd"
+                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                            clipRule="evenodd"
+                        ></path>
+                    </motion.svg>
+                    <Input
+                        {...register('keyword', { required: true, minLength: 2 })}
+                        animate={inputAnimation}
+                        type="text"
+                        initial={{ scaleX: 0 }}
+                        transition={{ duration: 0.5, ease: 'linear' }}
+                        placeholder=" Tv or Moive 를 검색하세요"
+                    />
+                </Search>
+            </Col>
         </Nav>
     );
 }

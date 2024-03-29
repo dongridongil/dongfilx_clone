@@ -113,6 +113,15 @@ const ReleaseDate = styled.span`
     border-radius: 5px;
     color: #37ff00;
 `;
+
+const Overview = styled.span`
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: -4em;
+    right: -19em;
+    font-size: 16px;
+`;
 const Icon = styled.div`
     margin-left: 5px;
     margin-top: 12px;
@@ -146,9 +155,9 @@ function BigSeries({ id }: IBigtvProp) {
                         }}
                     />
                     <ReleaseDate>
-                        {searchSeries?.first_air_date && searchSeries?.first_air_date.split('-')[0]}
+                        {searchSeries?.first_air_date && searchSeries?.first_air_date.split('-')[0]} 년
                     </ReleaseDate>
-
+                    <ReleaseDate> 시즌 {searchSeries?.number_of_seasons}</ReleaseDate>
                     <DetailBox>
                         <OriginalTitle>
                             <h3>{searchSeries?.original_name}</h3>
@@ -165,7 +174,7 @@ function BigSeries({ id }: IBigtvProp) {
                         {searchSeries?.genres.map((data) => (
                             <GenreTag>{data.name}</GenreTag>
                         ))}
-                        <p>{searchSeries?.overview}</p>
+                        <Overview>{searchSeries?.overview}</Overview>
                     </DetailBox>
                 </>
             </BigMovie>

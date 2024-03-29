@@ -2,11 +2,18 @@ const API_KEY = 'fd38441e414947980f6caa7de48cb86b';
 const BASE_PATH = 'https://api.themoviedb.org/3';
 
 interface IMovie {
-    id: number;
-    backdrop_path: string;
     poster_path: string;
-    title: string;
     overview: string;
+    release_date: string;
+    id: number;
+    original_title?: string;
+    title?: string;
+    backdrop_path: string;
+    popularity: number;
+    vote_count: number;
+    vote_average: number;
+    original_name?: string;
+    name?: string;
 }
 
 interface ISeries {
@@ -63,6 +70,13 @@ export interface ISearchTv {
     number_of_episodes: number;
     number_of_seasons: number;
     sucess: boolean;
+}
+
+export interface IGetMoviesSearch {
+    page: number;
+    results: IMovie[];
+    total_pages: number;
+    total_results: number;
 }
 
 ////////////////// movie api ///////////
@@ -134,6 +148,21 @@ export async function getSeriesDetail(id: string) {
     );
 }
 
-export const TV_TYPE = ['nowPlaying', 'popularSeries', 'topRatedSeries'];
+/// SEARCH API
 
-export const LIST_TYPE = ['nowPlaying', 'upcomingMovies', 'popularMovies', 'TopRated']; // 영상 종류
+// movie search
+export async function getMoviesSearch(name: string) {
+    return fetch(`${BASE_PATH}/search/movie?api_key=${API_KEY}&language=en-US&query=${name}&page=1`).then((response) =>
+        response.json()
+    );
+}
+
+// tv search
+export async function getTvsSearch(name: string) {
+    return fetch(
+        `${BASE_PATH}/search/tv?api_key=${API_KEY}&language=en-US&page=1&query=${name}&include_adult=false`
+    ).then((response) => response.json());
+}
+
+export const TV_TYPE = ['nowPlaying', 'popularSeries', 'topRatedSeries'];
+export const LIST_TYPE = ['nowPlaying', 'upcomingMovies', 'popularMovies', 'TopRated'];

@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { makeImagePath } from '../../utils.ts';
-import React from 'react';
 import { ISearchMovie, getMovieDetail } from '../../api.ts';
+import React from 'react';
+import { makeImagePath } from '../../utils.ts';
 import { IoStarSharp } from 'react-icons/io5';
 
 const Overlay = styled(motion.div)`
@@ -76,7 +76,7 @@ const TitleBox = styled.div`
     align-items: center;
     position: relative;
     top: -10.5em;
-    left: 18.7em;
+    left: 18.3em;
 
     h2 {
         color: ${(props) => props.theme.white.lighter};
@@ -127,19 +127,21 @@ const Icon = styled.div`
     margin-left: 5px;
     margin-top: 13px;
 `;
-interface IBigMovieProp {
+
+interface IBigSearchProp {
     id: string;
+    menu: string;
+    keyword: string | null;
+    option: string;
 }
 
-function BigScreen({ id }: IBigMovieProp) {
-    // const detailmatch = useRouteMatch<{ id: string }>('/movies/:id');
+function BigScreenSearchMovie({ id, menu, keyword, option }: IBigSearchProp) {
     const history = useNavigate();
-    const { data: searchMovie, isLoading } = useQuery<ISearchMovie>(['movie', `${id}_detail`], () =>
-        getMovieDetail(id)
-    );
-    console.log(searchMovie?.vote_average);
+    const { data: searchMovie, isLoading } = useQuery<ISearchMovie>(`searchMovie${id}`, () => getMovieDetail(id));
+    console.log('searchMovie', searchMovie);
+
     const onClickBackHome = () => {
-        history('/');
+        history(`/search?keyword=${keyword}`);
     };
     return (
         <>
@@ -189,4 +191,4 @@ function BigScreen({ id }: IBigMovieProp) {
     );
 }
 
-export default BigScreen;
+export default BigScreenSearchMovie;
