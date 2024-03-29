@@ -63,7 +63,7 @@ function Tv() {
                         title={'잊혀 지지 않는 명작들'}
                         tvType={TV_TYPE[0]}
                     />
-                    <Sliders data={nowSeries as IGetSeriesResult} title={'현재 나오는 시리즈'} tvType={TV_TYPE[0]} />
+                    <Sliders data={nowSeries as IGetSeriesResult} title={'현재 방영중인 시리즈'} tvType={TV_TYPE[0]} />
                     <Sliders
                         data={popularSeries as IGetSeriesResult}
                         title={'현재 인기있는 시리즈'}

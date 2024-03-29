@@ -18,14 +18,16 @@ const WrapperForm = styled.div`
 `;
 const Form = styled.form``;
 const SearchTvMovie = styled.input`
-    width: 300px;
+    width: 200px;
     padding: 10px 20px;
     color: white;
     background-color: transparent;
-    font-size: 20px;
+    font-size: 15px;
+    margin-top: -20px;
+    margin-left: 40px;
 `;
 const SearhResult = styled.span`
-    font-size: 30px;
+    font-size: 20px;
 `;
 
 interface ISearchForm {
