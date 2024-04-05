@@ -10,7 +10,6 @@ import {
 } from '../api.ts';
 import styled from 'styled-components';
 import { makeImagePath } from '../utils.ts';
-import { motion, AnimatePresence, useViewportScroll, useScroll } from 'framer-motion';
 import Sliders from '../Components/movie/slider.tsx';
 
 const Wrapper = styled.div`
