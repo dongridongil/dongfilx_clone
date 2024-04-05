@@ -59,7 +59,7 @@ const DetailBox = styled.div`
         padding: 20px;
         position: relative;
         top: -2em;
-        left: 18em;
+        left: 27em;
     }
 `;
 
@@ -68,7 +68,7 @@ const OriginalTitle = styled.div`
     align-items: center;
     position: relative;
     top: -6.5em;
-    left: 19em;
+    left: 27em;
 `;
 
 const TitleBox = styled.div`
@@ -76,11 +76,12 @@ const TitleBox = styled.div`
     align-items: center;
     position: relative;
     top: -10.5em;
-    left: 18.5em;
+    left: 26.7em;
 
     h2 {
         color: ${(props) => props.theme.white.lighter};
         font-size: 30px;
+        margin-top: 5px;
         &:nth-child(2) {
             font-size: 24px;
             color: #e84118;
@@ -93,7 +94,7 @@ const TitleBox = styled.div`
 const GenreTag = styled.span`
     position: relative;
     top: -7.5em;
-    left: 18em;
+    left: 26em;
     opacity: 0.7;
     margin-left: 10px;
     background-color: #273c75;
@@ -101,10 +102,19 @@ const GenreTag = styled.span`
     border-radius: 10px;
 `;
 
+const Overview = styled.span`
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: -4em;
+    left: 27em;
+    font-size: 16px;
+`;
 const ReleaseDate = styled.span`
     position: relative;
     background-color: black;
-    font-size: 14px;
+    margin-left: 8px;
+    font-size: 13px;
     top: 11em;
     left: 1.7em;
     opacity: 0.7;
@@ -113,18 +123,9 @@ const ReleaseDate = styled.span`
     border-radius: 5px;
     color: #37ff00;
 `;
-
-const Overview = styled.span`
-    display: flex;
-    align-items: center;
-    position: relative;
-    top: -4em;
-    right: -19em;
-    font-size: 16px;
-`;
 const Icon = styled.div`
     margin-left: 5px;
-    margin-top: 12px;
+    margin-top: 13px;
 `;
 
 interface IBigSearchProp {

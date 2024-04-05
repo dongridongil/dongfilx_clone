@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as HashRouter, Routes, Route } from 'react-router-dom'; // BrowserRouter를 Router로 변경
+import { HashRouter, Routes, Route } from 'react-router-dom'; // BrowserRouter를 Router로 변경
 
 import Tv from './Routes/Tv.tsx';
 import Home from './Routes/Home.tsx';

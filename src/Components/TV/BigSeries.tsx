@@ -59,7 +59,7 @@ const DetailBox = styled.div`
         padding: 20px;
         position: relative;
         top: -2em;
-        left: 18em;
+        left: 27em;
     }
 `;
 
@@ -68,7 +68,7 @@ const OriginalTitle = styled.div`
     align-items: center;
     position: relative;
     top: -6.5em;
-    left: 19em;
+    left: 27em;
 `;
 
 const TitleBox = styled.div`
@@ -76,7 +76,7 @@ const TitleBox = styled.div`
     align-items: center;
     position: relative;
     top: -10.5em;
-    left: 18.5em;
+    left: 26.6em;
 
     h2 {
         color: ${(props) => props.theme.white.lighter};
@@ -93,7 +93,7 @@ const TitleBox = styled.div`
 const GenreTag = styled.span`
     position: relative;
     top: -7.5em;
-    left: 18em;
+    left: 26em;
     opacity: 0.7;
     margin-left: 10px;
     background-color: #273c75;
@@ -119,7 +119,7 @@ const Overview = styled.span`
     align-items: center;
     position: relative;
     top: -4em;
-    right: -19em;
+    left: 27em;
     font-size: 16px;
 `;
 const Icon = styled.div`
