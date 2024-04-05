@@ -43,6 +43,7 @@ function Tv() {
         'popularSeries',
         getSeriesPopular
     );
+    //console.log(nowSeries)
     const { data: topRatedSeries, isLoading: topRatedIsloading } = useQuery<IGetSeriesResult>(
         'topRatedSeries',
         getSeriesTopRated
