@@ -36,14 +36,14 @@ const Banner = styled.div<{ bgPhoto: string }>`
     background-position: center center;
 `;
 
-const Title = styled.h2`
+const Title = styled.h1`
     font-size: 48px;
     width: 70%;
     margin-bottom: 20px;
     font-weight: 500;
 `;
 const Overview = styled.p`
-    font-size: 15px;
+    font-size: 25px;
     width: 50%;
 `;
 
