@@ -3,21 +3,21 @@
 ## 개발환경
 ```
 
-* 프로젝트 환경설정 React 프로젝트(CRA) 설치 : `npx create-react-app "앱이름"` <br />
+* 프로젝트 환경설정 React 프로젝트(CRA) 설치 : `npx create-react-app "앱이름"` 
 
-*  React 중앙집중식 상태 관리 라이브러리 Recoil 설치 : `npm install recoil` <br />
+*  React 중앙집중식 상태 관리 라이브러리 Recoil 설치 : `npm install recoil`
 
-*  페이지 간의 네비게이션을 위한 React-Router 설치 :` npm install react-router` <br />
+*  페이지 간의 네비게이션을 위한 React-Router 설치 :` npm install react-router`
 
-*  스타일링을 위한 CSS-in-JS 라이브러리 Styled-Components 설치 : `npm install styled-components` <br />
+*  스타일링을 위한 CSS-in-JS 라이브러리 Styled-Components 설치 : `npm install styled-components`
 
-*  애니메이션을 위한 Framer-Motion 라이브러리 설치 :` npm install framer-motion `<br />
+*  애니메이션을 위한 Framer-Motion 라이브러리 설치 :` npm install framer-motion `
 
-*  터치 슬라이더를 위한 Swiper 라이브러리 설치 : `npm install swiper` <br />
+*  터치 슬라이더를 위한 Swiper 라이브러리 설치 : `npm install swiper`
 
-*  폼 관리를 위한 react-hook-form 설치 : `npm install react-hook-form` <br />
+*  폼 관리를 위한 react-hook-form 설치 : `npm install react-hook-form` 
 
-*  브라우저 라우팅을 위한 react-router-dom 설치 :` npm install react-router-dom` <br />
+*  브라우저 라우팅을 위한 react-router-dom 설치 :` npm install react-router-dom`
 ```
 
 ##  프로젝트 구조
