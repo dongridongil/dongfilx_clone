@@ -22,28 +22,29 @@
 
 src
 ├── apis/*              # 영화/드라마 API 폴더
-└── assets              # static 폴더
-    └── images/*        # image 폴더
-└── components          # 리액트 컴포넌트 폴더
-    └── movie/*         # 영화 컴포넌트 폴더  
-        └── BigScreen.tsx   # 영화 정보 모달창 컴포넌트
-        └── slider.ts       # 영화 정보 슬라이드 컴포넌트
-    └── tv/*            # 드라마 컴포넌트 폴더 
-        └── BigSeries.tsx   # 드라마 정보 모달창 컴포넌트
-        └── slider.ts       # 드라마 정보 모달창 컴포넌트
-    └── search/*        # 검색 컴포넌트 폴더 
-        └── BigMovieSearch.tsx    # 영화 검색 컴포넌트
-        └── BigSeriesSearch.tsx   # 드라마 검색 컴포넌트
-        └── modal.tsx             # 검색 모달창 컴포넌트
-    └── Header.tsx      # Header 컴포넌트
+├── assets              # static 폴더
+│   └── images/*        # image 폴더
+├── components          # 리액트 컴포넌트 폴더
+│   ├── movie/*         # 영화 컴포넌트 폴더  
+│   │   ├── BigScreen.tsx   # 영화 정보 모달창 컴포넌트
+│   │   └── slider.ts       # 영화 정보 슬라이드 컴포넌트
+│   ├── tv/*            # 드라마 컴포넌트 폴더 
+│   │   ├── BigSeries.tsx   # 드라마 정보 모달창 컴포넌트
+│   │   └── slider.ts       # 드라마 정보 모달창 컴포넌트
+│   ├── search/*        # 검색 컴포넌트 폴더 
+│   │   ├── BigMovieSearch.tsx    # 영화 검색 컴포넌트
+│   │   ├── BigSeriesSearch.tsx   # 드라마 검색 컴포넌트
+│   │   └── modal.tsx             # 검색 모달창 컴포넌트
+│   └── Header.tsx      # Header 컴포넌트
 ├── Routes/*            # 리액트 라우터 폴더
-    └── Home.tsx        # 메인페이지 컴포넌트
-    └── Search.tsx      # 드라마 컴포넌트 
-    └── TV.tsx          # TV 컴포넌트
+│   ├── Home.tsx        # 메인페이지 컴포넌트
+│   ├── Search.tsx      # 드라마 컴포넌트 
+│   └── TV.tsx          # TV 컴포넌트
 ├── utils/*             # JS 유틸 폴더
 ├── App.tsx             # 컴포넌트 관계 정의 컴포넌트.tsx
 ├── index.tsx           # 메인 컴포넌트.tsx
 └── theme.ts            # 컬러 설정
+
 
 
 
