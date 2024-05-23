@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+## 노마드 코더 React 마스터 강좌 넷플릭스 클론
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 개발환경
 
-## Available Scripts
+* 프로젝트 환경설정 React 프로젝트(CRA) 설치 : `npx create-react-app "앱이름"` <br />
 
-In the project directory, you can run:
+*  React 중앙집중식 상태 관리 라이브러리 Recoil 설치 : `npm install recoil` <br />
 
-### `npm start`
+*  페이지 간의 네비게이션을 위한 React-Router 설치 :` npm install react-router` <br />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+*  스타일링을 위한 CSS-in-JS 라이브러리 Styled-Components 설치 : `npm install styled-components` <br />
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+*  애니메이션을 위한 Framer-Motion 라이브러리 설치 :` npm install framer-motion `<br />
 
-### `npm test`
+*  터치 슬라이더를 위한 Swiper 라이브러리 설치 : `npm install swiper` <br />
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+*  폼 관리를 위한 react-hook-form 설치 : `npm install react-hook-form` <br />
 
-### `npm run build`
+*  브라우저 라우팅을 위한 react-router-dom 설치 :` npm install react-router-dom` <br />
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+###  프로젝트 구조
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+src
+├── apis/*              # 영화/드라마 API 폴더
+└── assets              # static 폴더
+    └── images/*        # image 폴더
+└── components          # 리액트 컴포넌트 폴더
+    └── movie/*         # 영화 컴포넌트 폴더  
+        └── BigScreen.tsx   # 영화 정보 모달창 컴포넌트
+        └── slider.ts       # 영화 정보 슬라이드 컴포넌트
+    └── tv/*            # 드라마 컴포넌트 폴더 
+        └── BigSeries.tsx   # 드라마 정보 모달창 컴포넌트
+        └── slider.ts       # 드라마 정보 모달창 컴포넌트
+    └── search/*        # 검색 컴포넌트 폴더 
+        └── BigMovieSearch.tsx    # 영화 검색 컴포넌트
+        └── BigSeriesSearch.tsx   # 드라마 검색 컴포넌트
+        └── modal.tsx             # 검색 모달창 컴포넌트
+    └── Header.tsx      # Header 컴포넌트
+├── Routes/*            # 리액트 라우터 폴더
+    └── Home.tsx        # 메인페이지 컴포넌트
+    └── Search.tsx      # 드라마 컴포넌트 
+    └── TV.tsx          # TV 컴포넌트
+├── utils/*             # JS 유틸 폴더
+├── App.tsx             # 컴포넌트 관계 정의 컴포넌트.tsx
+├── index.tsx           # 메인 컴포넌트.tsx
+└── theme.ts            # 컬러 설정
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 웹 화면 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### 메인 화면
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![image](https://github.com/dongridongil/dongfilx_clone/assets/108976641/68dd8e27-02a8-4b1a-aa03-46ac6dd48d1d)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Series 화면
 
-## Learn More
+![image](https://github.com/dongridongil/dongfilx_clone/assets/108976641/cae41d32-130b-4d84-b418-8558f07d5cb9)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### 모달 화면
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![image](https://github.com/dongridongil/dongfilx_clone/assets/108976641/ec40b214-2f92-4f48-bbdb-a686487b0521)
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
