@@ -20,6 +20,7 @@
 
 ###  프로젝트 구조
 
+```
 src
 ├── apis/*              # 영화/드라마 API 폴더
 ├── assets              # static 폴더
@@ -44,7 +45,7 @@ src
 ├── App.tsx             # 컴포넌트 관계 정의 컴포넌트.tsx
 ├── index.tsx           # 메인 컴포넌트.tsx
 └── theme.ts            # 컬러 설정
-
+```
 
 
 
