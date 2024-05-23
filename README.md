@@ -1,6 +1,7 @@
-## 노마드 코더 React 마스터 강좌 넷플릭스 클론
+# 노마드 코더 React 마스터 강좌 넷플릭스 클론
 
-### 개발환경
+## 개발환경
+```
 
 * 프로젝트 환경설정 React 프로젝트(CRA) 설치 : `npx create-react-app "앱이름"` <br />
 
@@ -17,8 +18,9 @@
 *  폼 관리를 위한 react-hook-form 설치 : `npm install react-hook-form` <br />
 
 *  브라우저 라우팅을 위한 react-router-dom 설치 :` npm install react-router-dom` <br />
+```
 
-###  프로젝트 구조
+##  프로젝트 구조
 
 ```
 src
